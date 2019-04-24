@@ -1,0 +1,9 @@
+Django==2.2
+django-crispy-forms==1.7.2
+django-taggit==1.1.0
+Markdown==3.1
+mysqlclient==1.4.2.post1
+numpy==1.15.4+mkl
+Pillow==6.0.0
+pytz==2018.9
+sqlparse==0.3.0
