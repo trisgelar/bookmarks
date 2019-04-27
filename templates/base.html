@@ -39,5 +39,14 @@
 		{% block content %}
 		{% endblock %}
 	</div>
+	<script src="{% static 'js/jquery.min.js' %}"></script>
+	<script src="{% static 'js/jquery.min.map' %}"></script>
+	<script src="{% static 'js/js.cookie.js' %}"></script>
+	<script>
+		$(document).ready(function(){
+			{% block domready %}
+			{% endblock %}
+		}); 
+	</script>
 </body>
 </html>
