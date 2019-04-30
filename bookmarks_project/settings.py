@@ -11,10 +11,10 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import os
+from django.urls import reverse_lazy
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
@@ -24,10 +24,12 @@ SECRET_KEY = '_4x8#by-utwcy98m6dm4c=c_@p^ip9$3y20a%z0*coiwo3k+mv'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+THUMBNAIL_DEBUG = True
 
 ALLOWED_HOSTS = [
     'localhost',
     '127.0.0.1',
+    'ff36606b.ngrok.io'
 ]
 
 SITE_ID = 1
@@ -38,6 +40,8 @@ SITE_ID = 1
 INSTALLED_APPS = [
     'accounts.apps.AccountsConfig',
     'images.apps.ImagesConfig',
+    'actions.apps.ActionsConfig',
+    'sorl.thumbnail',
 
     
     'django.contrib.admin',
@@ -151,3 +155,15 @@ AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
     'accounts.authentication.EmailAuthBackend',
 ]
+
+ABSOLUTE_URL_OVERRIDES = {
+    'auth.user': lambda u:
+        reverse_lazy(
+            'accounts:user_detail',
+            args=[u.username] 
+        )
+}
+
+REDIS_HOST = '127.0.0.1'
+REDIS_PORT = 6379
+REDIS_DB = 0

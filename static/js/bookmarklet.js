@@ -1,7 +1,7 @@
 (function(){
   var jquery_version = '3.3.1';
-  // var site_url = 'https://3f6ad53c.ngrok.io/';
-  var site_url = '127.0.0.1:8000';
+  var site_url = 'https://ff36606b.ngrok.io';
+  // var site_url = '127.0.0.1:8000';
   var static_url = site_url + 'static/';
   var min_width = 100;
   var min_height = 100;
@@ -40,7 +40,7 @@
       // hide bookmarklet
       jQuery('#bookmarklet').hide();
       // open new window to submit the image
-      window.open(site_url +'images/create/?url='
+      window.open(site_url +'/images/create/?url='
                   + encodeURIComponent(selected_image)
                   + '&title='
                   + encodeURIComponent(jQuery('title').text()),
